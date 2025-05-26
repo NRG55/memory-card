@@ -1,10 +1,12 @@
-import './App.css'
+import './App.css';
+import Game from './components/Game';
 
-function App() { 
+
+function App() {     
 
   return (
     <>
-      <p>Test</p>
+      <Game />
     </>
   )
 }
