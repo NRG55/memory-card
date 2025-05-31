@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
-import getImageURLbyId from '../utils/imageAPI';
+import fetchData from '../utils/fetchData';
 import { cardsData } from '../utils/cardsData';
 import { shuffleCards } from '../utils/shuffleCards';
 import Gameboard from './Gameboard';
 import LoadingScreen from './LoadingScreen';
+import WinScreen from './WinScreen';
 
 export default function Game() {   
     const [cards, setCards] = useState(cardsData);
@@ -12,41 +13,48 @@ export default function Game() {
     const [bestScore, setBestScore] = useState(0);
     const [isFlipped, setIsFlipped] = useState(false);
 
-    useEffect(() => {
+    useEffect(() => {        
         const addImagesURLsToCards = async () => {
-            try {      
-                const updatedCards = await Promise.all(
-                cardsData.map(async (card) => {
-                const imageUrl = await getImageURLbyId(card.id);
+            const promises = cards.map(async (card) => {
+                                            const imageUrl = await fetchData(card.id);                                           
+                                              
+                                            return { ...card, imageUrl, isClicked: false};
+                                            }
+                                        );
+            
+            const updatedCards = await Promise.all(promises);           
         
-                return { ...card, imageUrl, isClicked: false};
-                })       
-            );        
-        
-            setCards(updatedCards);          
-         
-            } catch (error) {
-                console.log("Error: " + error)
-            };
+            setCards(updatedCards);        
         };
         
-        addImagesURLsToCards();
-        setTimeout( () => setIsGameReady(true), 9300)               
+        addImagesURLsToCards();       
+        setTimeout(() => setIsGameReady(true), 9500);               
     },[]);   
+
+    const resetGame = () => {
+        const cardsCopy = cards;
+
+        cardsCopy.forEach((card) => card.isClicked = false);        
+        setScore(0);             
+    };
+    
+    if (score === 8) { 
+        if (score > bestScore) {
+            setBestScore(score);
+        };
+           
+        return <WinScreen handleClick={resetGame} />               
+    };
     
     const handleClick = (e) => { 
         const cardsCopy = cards; 
         const currentCard = cardsCopy.find((card) => card.id === e.currentTarget.id);
-        const cardId = currentCard.id.toString();
-        
-        if (score === 8) {
-        // TODO: win               
-        };
-
+        const cardId = currentCard.id.toString();     
+       
         if (currentCard.isClicked === false) {                       
             currentCard.isClicked = true;
             setScore(score + 1);
-            handleCardsFlipp(cardsCopy);            
+            handleCardsFlip(cardsCopy);            
 
             return;
         };            
@@ -62,18 +70,13 @@ export default function Game() {
             document.getElementById(cardId).classList.remove("blink");
             document.querySelector(".gameboard-section").classList.remove("disabled") 
             resetGame();
-            handleCardsFlipp(cardsCopy);              
+            handleCardsFlip(cardsCopy);              
         }, 1000);               
-    };
+    }; 
     
-    const resetGame = () => {
-        const cardsCopy = cards;
+   
 
-        cardsCopy.forEach((card) => card.isClicked = false);        
-        setScore(0);             
-    };
-
-    const handleCardsFlipp = (cards) => {            
+    const handleCardsFlip = (cards) => {            
         setIsFlipped(true);  
 
         setTimeout(() => {
@@ -90,14 +93,14 @@ export default function Game() {
         <>  
             <header>
                 <h1>MEMORY CARD</h1>
-            </header>                 
+            </header>                          
             {isGameReady ? <Gameboard 
                                 cards={cards}
                                 score={score} 
                                 bestScore={bestScore}
                                 isFlipped={isFlipped}
                                 handleClick={handleClick}/> 
-                        : <LoadingScreen />}
+                        : <LoadingScreen cards={cards}/>}
         </>
     );
 }
