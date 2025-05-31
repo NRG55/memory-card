@@ -1,32 +1,86 @@
-body, html {  
-    height: 100%;   
+@font-face {        
+    font-family: "Cartoon";   
+    src: url("/home/dmitry/repos/memory-card/src/assets/fonts/Cartoon.otf")
+    format("woff2");
 }
 
-body { 
+@font-face {        
+    font-family: "Super bubble";   
+    src: url("/home/dmitry/repos/memory-card/src/assets/fonts/SuperBubble.ttf")
+    format("woff2");
+}
+
+:root {
+    --cardColor: rgb(12, 12, 12, 0.1);
+    --headerHeight: 8rem;
+}
+
+body, html, #root {  
+    height: 100%;
+    user-select: none;  
+}
+
+body {     
     margin: 0;   
-    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("./images/background.png");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("./images/background.png");
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: center;       
+    background-position: center;
+    font-family: "Cartoon", sans-serif;       
+}
+
+#root {
+    position: relative;     
+    max-width: 1200px; 
+    margin: auto; 
 }
 
 h1, h2, h3 {
-    margin: 0;
-    color: white; 
+    margin: 0;  
+    text-align: center;
 }
 
-.cards-container {
-    display: flex;
+img {
+    -webkit-user-drag: none;
 }
 
-.card {
-    width: 8rem;
-
-    img {
-        width: 100%;
-    }
+header { 
+    display: grid;
+    align-content: center;   
+    height: 5rem;
+    width: 100%;    
+    
+    h1 {
+        color: rgb(67, 207, 67);
+        font-size: 1.5rem;
+    }    
 }
 
-.loading-screen {
-    color: white;
+header,
+.score {
+    background-color: rgb(12, 12, 12, 0.7); 
+    text-shadow:
+        -2px -2px 0 #000,
+        2px -2px 0 #000,
+        -2px 2px 0 #000,
+        2px 2px 0 #000,
+        -3px 0px 0 #000,
+        3px 0px 0 #000,
+        0px -3px 0 #000,
+        0px 3px 0 #000;    
 }
+
+.gameboard-section,
+.loading-screen,
+.win-screen {
+    height: calc(100% - var(--headerHeight));
+}
+
+/* --------------- TABLET STYLES --------------- */
+
+@media (min-width: 600px) {
+    header h1 {
+        font-size: 2rem;
+    }   
+}
+

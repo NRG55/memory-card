@@ -1,4 +1,4 @@
-import cardBack6 from "../images/card-back6.jpg";
+import cardBack from "../images/card-back.jpg";
 
 export default function Card({ cardTitle, imageUrl, cardId, isFlipped, handleClick}) { 
     return (
@@ -15,7 +15,7 @@ export default function Card({ cardTitle, imageUrl, cardId, isFlipped, handleCli
                 </div>
                 <div className="card-back">
                     <img
-                        src={cardBack6}
+                        src={cardBack}
                         alt="Card back"
                     />
                 </div>                                    

@@ -1,7 +1,8 @@
+import "/src/styles/Gameboard.css";
 import Card from "./Card";
 
 export default function Gameboard({ cards, score, bestScore, isFlipped, handleClick,}) {
- 
+     
     return (
         <section className="gameboard-section">
             <div className="score">            
@@ -10,7 +11,7 @@ export default function Gameboard({ cards, score, bestScore, isFlipped, handleCl
             </div>
             <div className={`cards-container`}>
                 {cards.map((card) =>
-                    <Card key={card.id} 
+                    <Card key={"card-" + card.id} 
                           cardId={card.id} 
                           cardTitle={card.title} 
                           imageUrl={card.imageUrl}

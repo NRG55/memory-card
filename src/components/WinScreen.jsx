@@ -1,6 +1,8 @@
-import winGif from "../images/win2.gif";
+import "/src/styles/WinScreen.css";
+import winGif from "../images/win.gif";
 
-export default function WinScreen() {
+export default function WinScreen({ handleClick }) { 
+        
   return (
     <>
         <section className="win-screen">         
@@ -9,7 +11,7 @@ export default function WinScreen() {
             </div>
             <div className="win-message-container">
                 <div>Play again?</div>
-                <button>Yes!</button>
+                <button onClick={handleClick}>Yes!</button>
             </div>
       </section>
     </>

@@ -1,6 +1,6 @@
 export const cardsData = [
     {        
-        id: "9386178",
+        id: "9386178",  // image id from pixabay.com
         title: "Duck"
     },
     {
