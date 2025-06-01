@@ -12,11 +12,12 @@
 
 :root {
     --cardColor: rgb(12, 12, 12, 0.1);
-    --headerHeight: 8rem;
+    --headerHeight: 3.5rem;
+    --headerHeight2k: 6rem;
 }
 
 body, html, #root {  
-    height: 100%;
+    min-height: 100vh;
     user-select: none;  
 }
 
@@ -30,14 +31,13 @@ body {
 }
 
 #root {
-    position: relative;     
-    max-width: 1200px; 
+    position: relative;  
     margin: auto; 
 }
 
 h1, h2, h3 {
     margin: 0;  
-    text-align: center;
+    text-align: center;    
 }
 
 img {
@@ -47,18 +47,17 @@ img {
 header { 
     display: grid;
     align-content: center;   
-    height: 5rem;
-    width: 100%;    
+    height: var(--headerHeight);
+    width: 100%;        
     
-    h1 {
+    h1 {        
         color: rgb(67, 207, 67);
-        font-size: 1.5rem;
+        font-size: 1.3rem;      
     }    
 }
 
 header,
-.score {
-    background-color: rgb(12, 12, 12, 0.7); 
+.score {   
     text-shadow:
         -2px -2px 0 #000,
         2px -2px 0 #000,
@@ -76,11 +75,22 @@ header,
     height: calc(100% - var(--headerHeight));
 }
 
-/* --------------- TABLET STYLES --------------- */
+/* --------------- DESKTOP STYLES (2K)--------------- */
 
-@media (min-width: 600px) {
-    header h1 {
-        font-size: 2rem;
-    }   
+@media (min-width: 1900px) {
+    header {
+        height: var(--headerHeight2k);
+
+        h1 {
+            font-size: 2rem;
+        }        
+    }
+
+    .gameboard-section,
+    .loading-screen,
+    .win-screen {
+        height: calc(100% - var(--headerHeight2k));
+    }           
 }
+
 

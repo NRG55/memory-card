@@ -1,41 +1,45 @@
+.gameboard-section {
+    width: fit-content;
+    margin: auto;
+}
+
 .score {  
     display: flex;
     flex: 1;
-    justify-content: space-between;   
-    gap: 5rem; 
-    padding: 1rem 2rem;    
-    border-bottom-left-radius: 16px;
-    border-bottom-right-radius: 16px; 
-    
-    .score-text {
-        position: relative;
-        font-size: 1.3rem;    
-        color: rgb(243, 183, 53);
-        margin-right: 2rem; 
-    }
-
-    .score-number {
-        position: absolute;
-        top: -.4rem;
-        right: -2rem;
-        color: rgb(211, 211, 211);
-        text-shadow: none;
-        font-size: 1.8rem;      
-        font-family:  "Super bubble", sans-serif;     
-    }
+    justify-content: space-between;  
+    padding: 0 1rem 1rem 1rem;    
 
     :nth-child(2) {
         color: rgb(70, 149, 240);      
     }
 }
 
+.score-text {
+    position: relative;
+    font-size: 1.2rem;    
+    color: rgb(243, 183, 53);
+    margin-right: 2rem; 
+}
+
+.score-number {
+    position: absolute;
+    top: -.2rem;
+    right: -2.4rem;
+    color: rgb(211, 211, 211);
+    text-shadow: none;
+    font-size: 1.6rem;      
+    font-family:  "Super bubble", sans-serif;
+    background-color: rgb(12, 12, 12, 0.6);
+    border-radius: 8px; 
+    padding: 0 .4rem;     
+}
+
 .cards-container {
-    display: flex;
-    justify-content: center; 
-    flex-wrap: wrap; 
-    gap: 1.2rem;
+    display: grid;    
+    grid-template-columns: repeat(3, 1fr);   
+    gap: 1rem;
     padding-top: 2rem;
-    animation: pop-in 0.5s;    
+    animation: pop-in 0.5s;     
 }
 
 @keyframes pop-in {
@@ -47,7 +51,7 @@
     position: relative;
     cursor: pointer;
     width: 7rem;
-    height: 11rem;   
+    height: 10.5rem;   
     transition: transform 0.6s ease;
     transform-style: preserve-3d;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;  
@@ -117,19 +121,15 @@
 /* --------------- TABLET STYLES --------------- */
 
 @media (min-width: 600px) {
-    .score {         
-        .score-text {          
-            font-size: 1.5rem;        
-        }
-    
-        .score-number {         
-            font-size: 2rem;                
-        }      
+    .cards-container {
+        grid-template-columns: repeat(4, 1fr);     
+        gap: 1.5rem;   
+        padding-top: 2.5rem;
     }
 
     .card {
-        width: 11rem;
-        height: 17rem;
+        width: 8rem;
+        height: 13rem;
     }
 }
 
@@ -147,13 +147,36 @@
         }
     }
 
-    .cards-container {      
+    .cards-container {             
         gap: 1.5rem;   
-        padding: 2.5rem;
+        padding-top: 2.5rem;
+    }
+
+    .card {
+        width: 10rem;
+        height: 16rem;
+    }      
+}
+
+/* ----------------Desktop 2K+ --------------- */
+
+@media (min-width: 1900px) {
+    .score-text {      
+        font-size: 1.8rem;
+    }
+
+    .score-number {
+        font-size: 2.2rem;
+        right: -3rem;
+    }
+
+    .cards-container {             
+        gap: 2.5rem;   
+        padding-top: 4rem;
     }
 
     .card {
         width: 14rem;
         height: 22rem;
-    }      
+    }              
 }

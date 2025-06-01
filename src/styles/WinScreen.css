@@ -1,15 +1,11 @@
 .win-screen {
     display: grid;
     grid-template-rows: 1fr auto;
-    justify-content: center;        
+    justify-content: center;         
 }
 
-.win-image-container {  
-    margin-bottom: 4rem;
-
-    img {       
-        width: 100%;
-    }
+.win-image-container img{            
+    height: 100%;
 }  
 
 .win-message-container {
@@ -17,7 +13,7 @@
     justify-items: center;  
     gap: 2rem;
     color: rgb(243, 183, 53);
-    font-size: 2rem;
+    font-size: 1.6rem;
     margin-bottom: 8rem;
 
     button { 
@@ -37,12 +33,11 @@
     }
 }
 
-/* --------------- TABLET STYLES --------------- */
+/* ----------------DESKTOP 2K+ --------------- */
 
-@media (min-width: 600px) {
-    
-    .win-screen img {       
-        height: 100%;
-    }
+@media (min-width: 1900px) { 
+    .win-image-container {            
+        height: 60vh;
+    }               
 }
 

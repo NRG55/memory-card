@@ -93,7 +93,7 @@ export default function Game() {
         <>  
             <header>
                 <h1>MEMORY CARD</h1>
-            </header>                          
+            </header>                                    
             {isGameReady ? <Gameboard 
                                 cards={cards}
                                 score={score} 
