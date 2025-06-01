@@ -1,5 +1,5 @@
 import "/src/styles/WinScreen.css";
-import winGif from "../images/win.gif";
+import winGif from "/images/win.gif";
 
 export default function WinScreen({ handleClick }) { 
         

@@ -1,4 +1,4 @@
-import cardBack from "../images/card-back.jpg";
+import cardBack from "/images/card-back.jpg";
 
 export default function Card({ cardTitle, imageUrl, cardId, isFlipped, handleClick}) { 
     return (

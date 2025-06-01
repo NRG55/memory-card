@@ -1,11 +1,11 @@
-import bee from "../images/bee.png";
-import butterfly from "../images/butterfly.png";
-import chicken from "../images/chicken.png";
-import duck from "../images/duck.png";
-import elephant from "../images/elephant.png";
-import mouse from "../images/mouse.png";
-import tiger from "../images/tiger.png";
-import turtle from "../images/turtle.png";
+import bee from "/images/bee.png";
+import butterfly from "/images/butterfly.png";
+import chicken from "/images/chicken.png";
+import duck from "/images/duck.png";
+import elephant from "/images/elephant.png";
+import mouse from "/images/mouse.png";
+import tiger from "/images/tiger.png";
+import turtle from "/images/turtle.png";
 
 const fallbackImages = {
     "9368985": bee,

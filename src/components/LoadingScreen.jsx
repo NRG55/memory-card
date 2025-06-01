@@ -1,5 +1,5 @@
 import "/src/styles/LoadingScreen.css";
-import loadingGif from "../images/loading.gif";
+import loadingGif from "/images/loading.gif";
 
 export default function LoadingScreen({ cards }) {
     return (
