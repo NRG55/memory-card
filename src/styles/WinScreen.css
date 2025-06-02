@@ -35,7 +35,7 @@
 
 /* ----------------DESKTOP 2K+ --------------- */
 
-@media (min-width: 1900px) { 
+@media (min-width: 1980px) { 
     .win-image-container {            
         height: 60vh;
     }               

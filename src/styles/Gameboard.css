@@ -160,7 +160,7 @@
 
 /* ----------------Desktop 2K+ --------------- */
 
-@media (min-width: 1900px) {
+@media (min-width: 1980px) {
     .score-text {      
         font-size: 1.8rem;
     }

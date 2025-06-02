@@ -77,7 +77,7 @@ header,
 
 /* --------------- DESKTOP STYLES (2K)--------------- */
 
-@media (min-width: 1900px) {
+@media (min-width: 1980px) {
     header {
         height: var(--headerHeight2k);
 

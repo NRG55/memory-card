@@ -72,9 +72,7 @@ export default function Game() {
             resetGame();
             handleCardsFlip(cardsCopy);              
         }, 1000);               
-    }; 
-    
-   
+    };   
 
     const handleCardsFlip = (cards) => {            
         setIsFlipped(true);  
