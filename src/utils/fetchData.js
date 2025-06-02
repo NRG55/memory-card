@@ -21,7 +21,7 @@ const fallbackImages = {
 export default async function fetchData(id) {
     try {                
         const response = await fetch(`https://pixabay.com/api/?key=48616540-5f0061190e7a3d1e4eb74b784&id=${id}&imaage_type=illustration`, {signal: AbortSignal.timeout(5000)});
-        console.log(response)
+       
         if (response.status === 200) {
             const data = await response.json();
             const imageURL = data.hits[0].webformatURL;
